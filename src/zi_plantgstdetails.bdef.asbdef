@@ -1,0 +1,42 @@
+managed implementation in class zbp_i_plantgstdetails unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_PlantGstDetails alias PlantGst
+persistent table zplant_gst
+draft table zplant_gst_d
+lock master
+total etag LastChangedAt
+authorization master ( global )
+etag master LocalLastChangedAt
+{
+  create ( precheck );
+  update;
+  delete;
+
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+  field ( mandatory : create, readonly : update ) Plant, Gstin;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zplant_gst
+  {
+    Plant              = plant;
+    Gstin              = gstin;
+    TaxRegion          = tax_region;
+    Description        = description;
+    UserId             = user_id;
+    Password           = password;
+    MobileNo           = mobile_no;
+    Email              = email;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LastChangedBy      = last_changed_by;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

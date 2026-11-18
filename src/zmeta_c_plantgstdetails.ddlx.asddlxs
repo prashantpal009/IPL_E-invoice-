@@ -1,0 +1,72 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName:       'Plant GST Detail',
+    typeNamePlural: 'Plant GST Details',
+    title:          { type: #STANDARD, value: 'Plant' },
+    description:    { type: #STANDARD, value: 'Gstin' }
+  },
+  presentationVariant: [{ sortOrder: [{ by: 'Plant', direction: #ASC }] }]
+}
+annotate entity ZC_PlantGstDetails with
+{
+  @UI.facet: [
+    { id: 'General',  purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE,
+      label: 'General',                position: 10 },
+    { id: 'Portal',   purpose: #STANDARD, type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'Portal',  label: 'GST Portal Credentials', position: 20 },
+    { id: 'Contact',  purpose: #STANDARD, type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'Contact', label: 'Contact',                position: 30 },
+    { id: 'Admin',    purpose: #STANDARD, type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'Admin',   label: 'Administrative Data',    position: 40 }
+  ]
+
+  @UI: { lineItem:       [{ position: 10, importance: #HIGH }],
+         identification: [{ position: 10 }],
+         selectionField: [{ position: 10 }] }
+  Plant;
+
+  @UI: { lineItem:       [{ position: 20, importance: #HIGH }],
+         identification: [{ position: 20 }],
+         selectionField: [{ position: 20 }] }
+  Gstin;
+
+  @UI: { lineItem:       [{ position: 30, importance: #MEDIUM }],
+         identification: [{ position: 30 }],
+         selectionField: [{ position: 30 }] }
+  TaxRegion;
+
+  @UI: { lineItem:       [{ position: 40, importance: #MEDIUM }],
+         identification: [{ position: 40 }] }
+  Description;
+
+  @UI: { lineItem:       [{ position: 50, importance: #LOW }],
+         fieldGroup:     [{ qualifier: 'Portal', position: 10 }] }
+  UserId;
+
+  @UI: { fieldGroup: [{ qualifier: 'Portal', position: 20 }]}
+  Password;
+
+  @UI: { lineItem:   [{ position: 60, importance: #LOW }],
+         fieldGroup: [{ qualifier: 'Contact', position: 10 }] }
+  MobileNo;
+
+  @UI: { lineItem:   [{ position: 70, importance: #LOW }],
+         fieldGroup: [{ qualifier: 'Contact', position: 20 }] }
+  Email;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 10 }]
+  CreatedBy;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 20 }]
+  CreatedAt;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 30 }]
+  LastChangedBy;
+
+  @UI.fieldGroup: [{ qualifier: 'Admin', position: 40 }]
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

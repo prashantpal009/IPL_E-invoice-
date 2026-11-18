@@ -1,0 +1,24 @@
+managed implementation in class zbp_dd_irn unique;
+strict ( 2 );
+
+define behavior for ZDD_IRN //alias <alias_name>
+persistent table zdt_einvoice
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  static action GenerateIRN parameter ZST_IRN_PARAM result [1] ZST_IRN_PAYLOAD_RES;
+  static action CancelIrn parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action IrnPayload parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action EwayBillPayload parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action CancelIrnPayload parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action CancelEwayBillPayload parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action GenerateEwayBill parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action CancelEwayBill parameter ZST_IRN_PAYLOAD result [1] ZST_IRN_PAYLOAD_RES;
+  static action updateEwayBillDetails parameter ZST_EWAYBILL_DETAILS result [1] ZST_IRN_PAYLOAD_RES;
+
+  //  delete;
+  //  field ( readonly ) BillingDocument;
+}

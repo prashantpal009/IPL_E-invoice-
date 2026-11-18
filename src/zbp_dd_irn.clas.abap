@@ -1,0 +1,9 @@
+CLASS zbp_dd_irn DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zdd_irn.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_DD_IRN IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,30 @@
+managed implementation in class zbp_dd_einv_ewb_log unique;
+strict ( 2 );
+
+define behavior for ZDD_EINV_EWB_LOG //alias <alias_name>
+persistent table zdt_einv_ewb_log
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly, numbering : managed ) LogId;
+  field ( readonly : update ) CreatedBy, CreatedAt;
+  mapping for zdt_einv_ewb_log
+    {
+      Billingdocument = billingdocument;
+      EwbNo           = ewb_no;
+      HttpStatus      = http_status;
+      Irn             = irn;
+      LogId           = log_id;
+      ProcessType     = process_type;
+      RequestPayload  = request_payload;
+      ResponsePayload = response_payload;
+      Status          = status;
+      ErrorMessage    = error_message;
+      CreatedAt       = created_at;
+      CreatedBy       = created_by;
+    }
+}

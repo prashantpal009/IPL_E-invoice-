@@ -1,0 +1,4 @@
+@EndUserText.label: 'Plant GST Details'
+define service ZUI_PLANTGST {
+  expose ZC_PlantGstDetails as PlantGstDetails;
+}

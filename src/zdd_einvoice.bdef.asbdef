@@ -1,0 +1,47 @@
+managed implementation in class zbp_dd_einvoice unique;
+strict ( 2 );
+
+define behavior for ZDD_EINVOICE //alias <alias_name>
+persistent table zdt_einvoice
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  //  field ( readonly ) Billingdocument;
+  field ( readonly : create ) CreatedBy, CreatedAt;
+  field ( readonly : update ) Lastchangedat, Lastchangedby;
+  mapping for zdt_einvoice
+    {
+      BillingDocument    = billingdocument;
+      Plant              = plant;
+      Ackdate            = ackdate;
+      Ackno              = ackno;
+      Companycode        = companycode;
+      Ewbdt              = ewbdt;
+      Ewbno              = ewbno;
+      Ewbvalidtill       = ewbvalidtill;
+      Irn                = irn;
+      Irnstatus          = irnstatus;
+      EwayBillStatus     = ewaybillstatus;
+      Signedinvoice      = signedinvoice;
+      Signedqrcode       = signedqrcode;
+      Qrcode             = qrcode;
+      transporterid      = transporterid;
+      transportergstin   = transportergstin;
+      transportername    = transportername;
+      transportdocnumber = transportdocnumber;
+      transportdocdate   = transportdocdate;
+      modeoftransport    = modeoftransport;
+      vehicletype        = vehicletype;
+      distancekm         = distancekm;
+      vehiclenumber      = vehiclenumber;
+      Createdat          = created_at;
+      Createdby          = created_by;
+      Lastchangedat      = last_changed_at;
+      Lastchangedby      = last_changed_by;
+      Createddate        = created_date;
+    }
+}

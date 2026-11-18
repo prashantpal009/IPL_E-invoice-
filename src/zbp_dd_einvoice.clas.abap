@@ -1,0 +1,9 @@
+CLASS zbp_dd_einvoice DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zdd_einvoice.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_DD_EINVOICE IMPLEMENTATION.
+ENDCLASS.

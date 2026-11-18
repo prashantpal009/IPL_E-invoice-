@@ -1,0 +1,4 @@
+@EndUserText.label: 'Plant GST Details API'
+define service ZA_PLANTGSTDETAILS {
+  expose ZA_PlantGstDetails;
+}

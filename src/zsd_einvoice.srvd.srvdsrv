@@ -1,0 +1,16 @@
+@EndUserText.label: 'Service Defination for Einvoice'
+define service ZSD_EINVOICE {
+  expose ZDD_IRN;
+  expose ZDD_EINVOICE;
+  expose ZDD_IRN_KPI;
+  expose ZDD_IRN_REJECTED_KPI;
+  expose ZDD_IRN_PENDING_KPI;
+  expose ZDD_IRN_SUBMIT_KPI;
+  expose ZDD_EINV_EWB_LOG;
+  expose ZBILLING_VH;
+  expose ZPLANT_VH;
+  expose ZCUSTOMER_VH;
+  expose ZVENDOR_VH;
+  expose ZDD_EwayBill_kpi;
+  expose ZDD_IRN_TOTAL_COUNT;
+}
